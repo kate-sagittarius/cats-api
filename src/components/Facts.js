@@ -60,16 +60,16 @@ const Facts = () => {
   return (
     <div className={classes.facts}>
       {catFacts.slice(0, 15).map(catFact =>
-        <Card className={classes.card}>
-        <CardContent>
+        <Card className={classes.card} key={catFact._id}>
+          <CardContent>
             <Typography variant="body2" component="p" className={classes.factsTypography}>
-                {catFact.text}
+              {catFact.text}
             </Typography>
-        </CardContent>
-        <CardActions className={classes.cardButtonWrapper}>
-        <Button size="small" className={classes.cardButton}>Learn More</Button>
-        </CardActions>
-    </Card>
+          </CardContent>
+          <CardActions className={classes.cardButtonWrapper}>
+            <Button size="small" className={classes.cardButton}>Learn More</Button>
+          </CardActions>
+        </Card>
       )}
     </div>
   );   
