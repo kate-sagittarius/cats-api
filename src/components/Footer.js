@@ -5,7 +5,6 @@ const useStyles = makeStyles({
   footer: {
     padding: '28px 24px',
     backgroundColor: '#FCA311',
-    bottom: '0',
     width: '100%',
     display: 'flex',
     justifyContent: 'flex-end',

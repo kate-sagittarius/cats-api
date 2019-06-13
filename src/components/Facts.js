@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import {Link} from 'react-router-dom';
+
 import {makeStyles} from '@material-ui/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -59,7 +61,7 @@ const Facts = () => {
 
   return (
     <div className={classes.facts}>
-      {catFacts.slice(0, 15).map(catFact =>
+      {catFacts.slice(0, 100).map(catFact =>
         <Card className={classes.card} key={catFact._id}>
           <CardContent>
             <Typography variant="body2" component="p" className={classes.factsTypography}>
@@ -67,7 +69,7 @@ const Facts = () => {
             </Typography>
           </CardContent>
           <CardActions className={classes.cardButtonWrapper}>
-            <Button size="small" className={classes.cardButton}>Learn More</Button>
+            <Button size="small" className={classes.cardButton} component={Link} to={`/facts/${catFact._id}/`}>Learn More</Button>
           </CardActions>
         </Card>
       )}

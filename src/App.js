@@ -1,17 +1,21 @@
 import React from 'react';
 
+import {BrowserRouter as Router} from 'react-router-dom';
+
 import AppWrapper from './components/AppWrapper';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Router from './Router';
+import AppRouter from './Router';
 
 function App() {
   return (
-    <AppWrapper>
-      <Header/>
-      <Router/>
-      <Footer/>
-    </AppWrapper>
+    <Router>
+      <AppWrapper>
+        <Header/>
+        <AppRouter/>
+        <Footer/>
+      </AppWrapper>
+    </Router>
   );
 }
 

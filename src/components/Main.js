@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
+
 import {makeStyles} from '@material-ui/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -55,7 +58,7 @@ const Main = () => {
                     Using the purr power they can heal humans and bring joy.`}
                 </Typography>
                 <div className={classes.buttonWrapper}>
-                    <Button variant="contained" color="secondary" className={classes.button}>
+                    <Button variant="contained" color="secondary" className={classes.button} component={Link} to="/facts/">
                         {'Learn more'}
                         <PetsIcon className={classes.buttonIcon} />
                     </Button>

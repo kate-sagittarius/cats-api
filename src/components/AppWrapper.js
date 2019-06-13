@@ -9,6 +9,7 @@ const useStyles = makeStyles({
     margin: '12px',
     borderRadius: '16px',
     overflow: 'hidden',
+    position: 'relative',
   },
 });
 
