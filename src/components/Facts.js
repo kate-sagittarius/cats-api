@@ -9,6 +9,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles({
     facts: {
@@ -45,7 +46,27 @@ const useStyles = makeStyles({
     factsTypography: {
         fontFamily: '"Poppins", sans-serif',
     },
+    progress: {
+      alignSelf: 'center',
+    }
 })
+
+const factText = (fact) => {
+  
+  if (fact.length < 200) {
+    return fact;
+  } else {
+
+    const factWords = fact.split(' ');
+
+    let wordsLengthSum = 0;
+    for (let i = 0; wordsLengthSum < 176 && i < factWords.length; i++) {
+      wordsLengthSum += factWords[i].length + 1;
+    }
+
+    return `${fact.slice(0, wordsLengthSum - 1)}…`;
+  }
+}
 
 const Facts = () => {
     const classes = useStyles();
@@ -61,18 +82,22 @@ const Facts = () => {
 
   return (
     <div className={classes.facts}>
-      {catFacts.slice(0, 100).map(catFact =>
+    {catFacts.length !== 0 ? (
+      catFacts.slice(0, 50).map(catFact =>
         <Card className={classes.card} key={catFact._id}>
           <CardContent>
             <Typography variant="body2" component="p" className={classes.factsTypography}>
-              {catFact.text}
+              {factText(catFact.text)}
             </Typography>
           </CardContent>
           <CardActions className={classes.cardButtonWrapper}>
             <Button size="small" className={classes.cardButton} component={Link} to={`/facts/${catFact._id}/`}>Learn More</Button>
           </CardActions>
         </Card>
-      )}
+      )
+    ) : (
+     <CircularProgress className={classes.progress} color="secondary" />
+    )}
     </div>
   );   
 }
