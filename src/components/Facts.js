@@ -69,8 +69,8 @@ const factText = (fact) => {
 }
 
 const Facts = () => {
-    const classes = useStyles();
-    const [catFacts, setCatFacts] = React.useState([]);
+  const classes = useStyles();
+  const [catFacts, setCatFacts] = React.useState([]);
 
   React.useEffect(() => {
     axios
@@ -82,22 +82,22 @@ const Facts = () => {
 
   return (
     <div className={classes.facts}>
-    {catFacts.length !== 0 ? (
-      catFacts.slice(0, 50).map(catFact =>
-        <Card className={classes.card} key={catFact._id}>
-          <CardContent>
-            <Typography variant="body2" component="p" className={classes.factsTypography}>
-              {factText(catFact.text)}
-            </Typography>
-          </CardContent>
-          <CardActions className={classes.cardButtonWrapper}>
-            <Button size="small" className={classes.cardButton} component={Link} to={`/facts/${catFact._id}/`}>Learn More</Button>
-          </CardActions>
-        </Card>
-      )
-    ) : (
-     <CircularProgress className={classes.progress} color="secondary" />
-    )}
+      {catFacts.length !== 0 ? (
+        catFacts.slice(0, 50).map(catFact =>
+          <Card className={classes.card} key={catFact._id}>
+            <CardContent>
+              <Typography variant="body2" component="p" className={classes.factsTypography}>
+                {factText(catFact.text)}
+              </Typography>
+            </CardContent>
+            <CardActions className={classes.cardButtonWrapper}>
+              <Button size="small" className={classes.cardButton} component={Link} to={`/facts/${catFact._id}/`}>Learn More</Button>
+            </CardActions>
+          </Card>
+        )
+      ) : (
+      <CircularProgress className={classes.progress} color="secondary" />
+      )}
     </div>
   );   
 }
